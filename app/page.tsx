@@ -1,9 +1,10 @@
 'use client';
 
-import { GraduationCap, Briefcase, Code, Award, UserIcon, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { GraduationCap, Briefcase, Code, Award, Github, Linkedin, Mail, ExternalLink, Mic } from "lucide-react";
 import { motion } from "framer-motion";
+import { Section, SectionItem } from './types';
 
-const sections = [
+const sections: Section[] = [
   {
     title: "Education",
     icon: GraduationCap,
@@ -144,7 +145,7 @@ export default function Home() {
       </header>
 
       <main className="container py-20 space-y-32">
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <motion.section
             key={section.title}
             initial={{ opacity: 0, y: 50 }}
@@ -167,6 +168,15 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
                   className="glass-card p-6 card-hover"
                 >
+                  {'image' in item && (
+                    <div className="mb-4 rounded-lg overflow-hidden">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-xl font-semibold text-brand-purple">
                       {item.title}
@@ -193,10 +203,15 @@ export default function Home() {
                       {item.location && <span className="block text-sm">{item.location}</span>}
                     </p>
                   )}
-                  {'description' in item && (
+                  {'location' in item && !('company' in item) && (
+                    <p className="text-brand-light/80 mb-2">
+                      {item.location}
+                    </p>
+                  )}
+                  {'description' in item && item.description && (
                     <p className="text-brand-text/70 mt-2 whitespace-pre-line">{item.description}</p>
                   )}
-                  {'tech' in item && (
+                  {'tech' in item && item.tech && (
                     <div className="flex flex-wrap gap-2 mt-3">
                       {item.tech.map((tech) => (
                         <span
