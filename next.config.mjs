@@ -2,7 +2,12 @@
 const nextConfig = {
   // Enable static image imports
   images: {
-    domains: ['vercel.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 }
 

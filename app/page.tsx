@@ -1,8 +1,9 @@
 'use client';
 
-import { GraduationCap, Briefcase, Code, Award, Github, Linkedin, Mail, ExternalLink, Mic } from "lucide-react";
+import { GraduationCap, Briefcase, Code, Award, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { Section, SectionItem } from './types';
+import { Section } from './types';
+import Image from 'next/image';
 
 const sections: Section[] = [
   {
@@ -169,11 +170,12 @@ export default function Home() {
                   className="glass-card p-6 card-hover"
                 >
                   {'image' in item && (
-                    <div className="mb-4 rounded-lg overflow-hidden">
-                      <img 
+                    <div className="mb-4 rounded-lg overflow-hidden relative h-64">
+                      <Image 
                         src={item.image} 
                         alt={item.title}
-                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   )}
