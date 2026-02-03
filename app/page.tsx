@@ -186,7 +186,7 @@ export default function Home() {
       </header>
 
       <main className="container py-20 space-y-32 relative z-10">
-        {sections.map((section, sectionIndex) => (
+        {sections.map((section) => (
           <motion.section
             key={section.title}
             initial={{ opacity: 0, y: 50 }}
