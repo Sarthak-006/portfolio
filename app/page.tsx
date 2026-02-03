@@ -33,7 +33,7 @@ const sections: Section[] = [
       {
         title: "Software Engineer (AI Engineer)",
         company: "The DataTech Labs",
-        year: "June 2024 - Present",
+        year: "June 2024 - August 2025",
         location: "Pune, India",
         description: "• Created OCR Optimization for leading web security providers\n• Improved optimization time from minutes to seconds for image recognition\n• Deployed custom chatbots and AI agents\n• Created AI pipeline for new projects and MLOps pipeline for old projects"
       },
